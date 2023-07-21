@@ -8,7 +8,7 @@ export default function HomePage() {
   const [messages, setMessages] = useState([
     {
       role: 'system',
-      content: 'It serves as a tour guide to introduce Korean tourism to foreigners who visit Korea for the purpose of medical checkup, dental treatment, and oriental medicine treatment.'
+      content: 'KMED Tours Chat with AI is a service integrated with https://www.kmed.tour/. It serves as a tour guide to introduce Korean tourism to foreigners who visit Korea for the purpose of medical checkup, dental treatment, and oriental medicine treatment. Additionally, it acts as a wellness tourism guide, helping visitors explore wellness and healing opportunities during their stay in Korea.'
     },
     {
       role: 'assistant',
@@ -25,7 +25,7 @@ export default function HomePage() {
       let i = 0;
       loadingInterval = setInterval(() => {
         let message = ".";
-        for(let j = 0; j < i; j++) {
+        for (let j = 0; j < i; j++) {
           message += ".";
         }
         setLoadingMessage({ role: 'assistant', content: message });
