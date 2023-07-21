@@ -5,7 +5,16 @@ import Chat from '../components/Chat';
 
 export default function HomePage() {
   const [loading, setLoading] = useState(false);
-  const [messages, setMessages] = useState([{ role: 'assistant', content: "hello? This is a chatbot from Kmed.tours. may I know your name, age, and country?" }]);
+  const [messages, setMessages] = useState([
+    {
+      role: 'system',
+      content: 'It serves as a tour guide to introduce Korean tourism to foreigners who visit Korea for the purpose of medical checkup, dental treatment, and oriental medicine treatment.'
+    },
+    {
+      role: 'assistant',
+      content: "Hello! This is a chatbot from Kmed.tours. May I know your name, age, and country?"
+    }
+  ]);
   const [loadingMessage, setLoadingMessage] = useState("");
   const loadingMessageRef = useRef(null);
 
@@ -58,7 +67,7 @@ export default function HomePage() {
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
       <div className="w-full max-w-md px-4 py-8 bg-white rounded-lg shadow-md">
         <h2 className="mb-4 text-xl font-bold text-center">KMED Tours Chat with AI</h2>
-        <Chat messages={messages.concat(loading ? loadingMessage : [])} />
+        <Chat messages={messages.concat(loading ? loadingMessage : []).filter(message => message.role !== 'system')} />
         <ChatInput onSend={handleChatSubmit} disabled={loading} />
       </div>
     </div>
