@@ -25,10 +25,14 @@ git <span class="hljs-built_in">clone</span> https://github.com/ComBba/kmed-tour
 <span class="hljs-built_in">cd</span> kmed-tours-chat-service
 <span class="hljs-comment"># 의존성 설치</span>
 npm install
+<span class="hljs-comment"># 환경설정</span>
+.env.example를 복사해서 .env.local 내용을 알맞게 변경
+OPENAI_API_KEY=sk-xxxx
 <span class="hljs-comment"># 로컬에서 실행</span>
 npm run dev
 </code>
 </pre>
+<p>openai API키는 <code>https://platform.openai.com/account/api-keys</code>에서 찾아 볼 수 있습니다.</p>
 <p>이제 <code>http://localhost:3000</code>에서 앱을 볼 수 있습니다.</p>
 <br>
 <h3>배포 방법</h3>
