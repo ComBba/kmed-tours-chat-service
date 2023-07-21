@@ -57,7 +57,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
       <div className="w-full max-w-md px-4 py-8 bg-white rounded-lg shadow-md">
-        <h2 className="mb-4 text-xl font-bold text-center">Chat with AI</h2>
+        <h2 className="mb-4 text-xl font-bold text-center">KMED Tours Chat with AI</h2>
         <Chat messages={messages.concat(loading ? loadingMessage : [])} />
         <ChatInput onSend={handleChatSubmit} disabled={loading} />
       </div>
