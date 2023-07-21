@@ -17,7 +17,7 @@ function ChatInput({ onSend }) {
   return (
     <form className="m-2 flex items-center" onSubmit={handleFormSubmit}>
       <input
-        className="flex-grow p-2 border border-gray-300 rounded-md"
+        className="flex-grow p-2 border border-gray-300 rounded-md text-black"
         type="text"
         value={message}
         onChange={handleInputChange}
