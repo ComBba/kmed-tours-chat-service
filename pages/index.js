@@ -66,7 +66,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
       <h2 className="mb-4 text-xl font-bold text-center text-black">KMED Tours Chat with AI</h2>
-      <div className="w-full max-w-md px-4 py-8 bg-white rounded-lg shadow-md space-y-4 h-[90vh] flex flex-col"> {/* 높이를 80vh로 변경하고 flex로 설정 */}
+      <div className="w-full max-w-md px-4 py-8 bg-white rounded-lg shadow-md space-y-4 h-[80vh] flex flex-col">
         <div className="overflow-y-auto no-scrollbar flex-grow p-t-10 p-b-10"> {/* 상하단에 10%의 패딩 추가하고 스크롤 설정 */}
           <Chat messages={messages.concat(loading ? loadingMessage : []).filter(message => message.role !== 'system')} />
         </div>
