@@ -11,10 +11,11 @@ function Chat({ messages }) {
   useEffect(scrollToBottom, [messages]);
 
   return (
-    <div className="p-4 overflow-y-auto no-scrollbar space-y-4 h-[80vh]">
+    <div className="p-4 space-y-4 mx-auto"> {/* 너비를 70%로 설정하고 중앙으로 정렬 */}
       {messages.map((message, idx) => (
-        <div key={idx} className={`max-w-lg mx-2 p-2 rounded-md ${message.role === 'assistant' ? 'bg-blue-500 text-white ml-auto' : 'bg-gray-300 mr-auto'}`}>
-          {message.content}
+        <div key={idx} className={`p-2 rounded-md w-[35vh] ${message.role === 'assistant' ? 'bg-blue-500 text-white mr-auto' : 'bg-gray-300 text-black ml-auto'}`}>
+        {/* CSS를 이용하여 줄바꿈 적용 */}
+          <div style={{ whiteSpace: 'pre-wrap' }}>{message.content}</div>
         </div>
       ))}
       <div ref={messagesEndRef} />
