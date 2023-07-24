@@ -4,6 +4,7 @@ import SearchInput from '../components/SearchInput';
 import ChatInput from '../components/ChatInput';
 import Chat from '../components/Chat';
 import Head from "next/head";
+import Image from 'next/image'
 
 export default function HomePage() {
   const [keyword, setKeyword] = useState('');
@@ -132,7 +133,7 @@ export default function HomePage() {
             ) : data && data.item ? (
               data.item.map((item, index) => (
                 <div key={index} className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-3 relative h-48 w-full md:w-48">
-                  <img className="h-full w-full object-cover" src={item.galWebImageUrl} alt={item.galTitle} />
+                  <Image className="h-full w-full object-cover" src={item.galWebImageUrl} alt={item.galTitle} width={192} height={192} />
 
                   <div className="absolute bottom-0 bg-black bg-opacity-50 text-white p-2">
                     <div className="uppercase tracking-wide text-2xs font-semibold">{item.galTitle}</div>
