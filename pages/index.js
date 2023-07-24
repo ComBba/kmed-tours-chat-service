@@ -67,7 +67,10 @@ export default function HomePage() {
     }
   };
 
+  const [galleryLoading, setGalleryLoading] = useState(false); // 갤러리 로딩 상태 추가
+
   const fetchData = async () => {
+    setGalleryLoading(true); // 데이터를 로드하기 시작할 때 로딩 상태를 true로 설정
     try {
       const response = await fetch(
         `/api/gallerySearch?keyword=${keyword}`
@@ -80,6 +83,7 @@ export default function HomePage() {
       setData(null);
       setError(err.toString());
     }
+    setGalleryLoading(false); // 데이터 로드가 완료되면 로딩 상태를 false로 설정
   };
 
   return (
@@ -87,7 +91,18 @@ export default function HomePage() {
       <div className="w-1/2 p-4 overflow-y-auto">
         <SearchInput onSearch={setKeyword} onSearchSubmit={fetchData} />
         <div className="flex flex-wrap justify-around">
-          {data && data.item &&
+          {galleryLoading ? (
+            <div className="flex items-center justify-center h-screen">
+              <div className="text-center">
+                <img
+                  src="https://api.visitkorea.or.kr/static/media/kto_logo.4faffe39.png"
+                  className="animate-pulse"
+                  alt="loading"
+                />
+                <p>Loading...</p>
+              </div>
+            </div>
+          ) : data && data.item ? (
             data.item.map((item, index) => (
               <div key={index} className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-3 relative h-48 w-full md:w-48">
                 <img className="h-full w-full object-cover" src={item.galWebImageUrl} alt={item.galTitle} />
@@ -108,11 +123,9 @@ export default function HomePage() {
                 </div>
               </div>
             ))
+          ) : error && <p>{error}</p>
           }
         </div>
-
-
-        {error && <p>{error}</p>}
       </div>
       <div className="w-1/2 flex flex-col items-center p-4 bg-white">
         <h2 className="mb-4 text-xl font-bold text-center text-black">KMED Tours Chat with AI</h2>
