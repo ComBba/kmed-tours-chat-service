@@ -12,7 +12,6 @@ export default function Document() {
         <meta name="twitter:image" content="https://kmed-tours-chat-service.vercel.app/kmed-logo.png" />
         <meta name="twitter:title" content="KMED Tours Chat with AI" />
         <meta name="twitter:description" content="A new way to tour while using medical examinations, oriental clinics, and dental clinics in Korea." />
-        <title>KMED Tours Chat with AI</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>
