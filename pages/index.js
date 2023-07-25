@@ -115,8 +115,8 @@ export default function HomePage() {
           <SearchInput onSearch={setKeyword} onSearchSubmit={fetchData} />
           {/* 페이지 이동 버튼을 감싸는 div에 클래스를 추가하여 중앙 배치 */}
           <div className="flex justify-center mt-4">
-            {currentPage > 1 && <button onClick={handlePrevPage}>이전</button>}
-            {totalPages !== undefined && currentPage < totalPages && <button onClick={handleNextPage}>다음</button>}
+            {currentPage > 1 && <button className="text-black" onClick={handlePrevPage}>이전</button>}
+            {totalPages !== undefined && currentPage < totalPages && <button className="text-black" onClick={handleNextPage}>다음</button>}
           </div>
           <div className="flex flex-wrap justify-around">
             {galleryLoading ? (
@@ -127,7 +127,7 @@ export default function HomePage() {
                     className="animate-pulse"
                     alt="loading"
                   />
-                  <p>Loading...</p>
+                  <p className="text-black">Loading...</p>
                 </div>
               </div>
             ) : data && data.item ? (
